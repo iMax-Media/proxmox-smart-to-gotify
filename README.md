@@ -13,7 +13,7 @@ Before using the script, ensure you have the following set up:
 ##### Step 1: Clone the Repository
 Clone this repository to your local machine:
 ```bash
-git clone https://github.com/your/repository.git
+git clone [https://github.com/iMax-Media/proxmox-smart-to-gotify.git](https://github.com/iMax-Media/proxmox-smart-to-gotify.git)
 cd repository
 ```
 
