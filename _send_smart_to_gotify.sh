@@ -18,7 +18,7 @@ get_smart_values() {
 # SMART-Werte abrufen und an Gotify senden
 for disk in "${disks[@]}"; do
     smart_values=$(get_smart_values $disk)
-    title="SMART Werte für $disk"
+    title="Your smart value for $disk"
     
     curl -F "title=$title" \
          -F "message=$smart_values" \
