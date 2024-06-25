@@ -1,24 +1,27 @@
 #!/bin/bash
 
-# Festplatten
+# Hard Disks
 disks=("/dev/nvme0n1" "/dev/sdb" "/dev/sdc")
 
-# Gotify Einstellungen
-gotify_url="http://your-gotify-server/message"
-gotify_token="your-own-token"
+# Gotify Settings
+gotify_url="http://your-gotify-server-url/message"
+gotify_token="your-application-token"
 
-# Funktion zum Abrufen der SMART-Werte
+# Path for smartctl 
+smartctl_path="/usr/sbin/smartctl"
+
+# function for smart value 
 get_smart_values() {
     local disk=$1
-    temperature=$(smartctl -A $disk | awk '/Temperature_Celsius/ {print $10}')
-    health=$(smartctl -H $disk | awk '/SMART overall-health self-assessment test result/ {print $6}')
+    temperature=$($smartctl_path -A $disk | awk '/Temperature_Celsius/ {print $10}')
+    health=$($smartctl_path -H $disk | awk '/SMART overall-health self-assessment test result/ {print $6}')
     echo -e "Temperature: $temperature°C\nHealth Status: $health"
 }
 
-# SMART-Werte abrufen und an Gotify senden
+# send smart value to gotify
 for disk in "${disks[@]}"; do
     smart_values=$(get_smart_values $disk)
-    title="Your smart value for $disk"
+    title="SMART Werte für $disk"
     
     curl -F "title=$title" \
          -F "message=$smart_values" \
