@@ -7,6 +7,8 @@ This repository hosts a script designed to monitor and report SMART (Self-Monito
 Before using the script, ensure you have the following set up:
 - **Gotify Server**: Set up and configure a Gotify server for receiving push notifications. For Gotify server setup instructions, visit [Gotify GitHub Repository]([https://github.com/gotify/server](https://github.com/gotify/server)).
 - **Create a Gotify Application**: Generate an application token by creating a new application on your Gotify server. This token will be used for authentication when sending notifications.
+- make sure you have installed smartctl
+- you can check this on terminal when you type "smartctl" -> to install you can use apt-get install smartctl
 
 #### Installation and Setup
 
