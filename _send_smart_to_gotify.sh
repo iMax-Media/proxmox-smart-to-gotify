@@ -8,7 +8,7 @@ gotify_url="http://your-gotify-server-url/message"
 gotify_token="your-application-token"
 
 # Path for smartctl 
-smartctl_path="/usr/sbin/smartctl"
+smartctl_path="/usr/bin/smartctl"
 
 # function for smart value 
 get_smart_values() {
